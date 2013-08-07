@@ -2,7 +2,7 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot;
+package com.winnergenic.reagroup.robot;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,12 +14,12 @@ import java.util.StringTokenizer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import com.winnegenic.reagroup.robot.command.Command;
-import com.winnegenic.reagroup.robot.command.LeftCommand;
-import com.winnegenic.reagroup.robot.command.MoveCommand;
-import com.winnegenic.reagroup.robot.command.PlaceCommand;
-import com.winnegenic.reagroup.robot.command.ReportCommand;
-import com.winnegenic.reagroup.robot.command.RightCommand;
+import com.winnergenic.reagroup.robot.command.Command;
+import com.winnergenic.reagroup.robot.command.LeftCommand;
+import com.winnergenic.reagroup.robot.command.MoveCommand;
+import com.winnergenic.reagroup.robot.command.PlaceCommand;
+import com.winnergenic.reagroup.robot.command.ReportCommand;
+import com.winnergenic.reagroup.robot.command.RightCommand;
 
 /**
  * CommandParserDelegate.java
@@ -48,7 +48,7 @@ public class CommandParserDelegate {
 	 * This parses all the commands from the reader to generate the 
 	 * command list to be returned
 	 * @return
-	 * @throws IOException 
+	 * @throws IOException only if we use a sensitive parser and if a problem occurs on parsing the commands
 	 */
 	public List<Command> parseCommands() throws IOException {
 		List<Command> commandList = new ArrayList<Command>();
@@ -56,7 +56,7 @@ public class CommandParserDelegate {
 		String line = "";
 		int lineNumber = 1;
 		while((line=reader.readLine()) != null) {
-			log.info(line); // showing parsed line
+			log.debug(line); // showing parsed line
 			
 			if (StringUtils.isEmpty(line)) {
 				break; // empty lines will be treated as EOL 

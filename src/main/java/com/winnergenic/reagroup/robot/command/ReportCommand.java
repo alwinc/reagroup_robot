@@ -2,9 +2,9 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot.command;
+package com.winnergenic.reagroup.robot.command;
 
-import com.winnegenic.reagroup.robot.Robot;
+import com.winnergenic.reagroup.robot.Robot;
 
 /**
  * ReportCommand.java

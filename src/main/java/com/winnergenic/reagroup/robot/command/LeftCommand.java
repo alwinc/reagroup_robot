@@ -2,10 +2,10 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot.command;
+package com.winnergenic.reagroup.robot.command;
 
-import com.winnegenic.reagroup.robot.Facing;
-import com.winnegenic.reagroup.robot.Robot;
+import com.winnergenic.reagroup.robot.Facing;
+import com.winnergenic.reagroup.robot.Robot;
 
 /**
  * LeftCommand.java

@@ -2,7 +2,7 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot;
+package com.winnergenic.reagroup.robot;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -16,12 +16,14 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
-import com.winnegenic.reagroup.robot.command.Command;
-import com.winnegenic.reagroup.robot.command.LeftCommand;
-import com.winnegenic.reagroup.robot.command.MoveCommand;
-import com.winnegenic.reagroup.robot.command.PlaceCommand;
-import com.winnegenic.reagroup.robot.command.ReportCommand;
-import com.winnegenic.reagroup.robot.command.RightCommand;
+import com.winnergenic.reagroup.robot.CommandParserDelegate;
+import com.winnergenic.reagroup.robot.Facing;
+import com.winnergenic.reagroup.robot.command.Command;
+import com.winnergenic.reagroup.robot.command.LeftCommand;
+import com.winnergenic.reagroup.robot.command.MoveCommand;
+import com.winnergenic.reagroup.robot.command.PlaceCommand;
+import com.winnergenic.reagroup.robot.command.ReportCommand;
+import com.winnergenic.reagroup.robot.command.RightCommand;
 
 /**
  * CommandParserDelegateTest.java

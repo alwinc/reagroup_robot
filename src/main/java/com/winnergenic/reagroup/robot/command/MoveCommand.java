@@ -2,26 +2,23 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot.command;
+package com.winnergenic.reagroup.robot.command;
 
-import org.apache.log4j.Logger;
-
-import com.winnegenic.reagroup.robot.Facing;
-import com.winnegenic.reagroup.robot.Position;
-import com.winnegenic.reagroup.robot.Robot;
+import com.winnergenic.reagroup.robot.Facing;
+import com.winnergenic.reagroup.robot.Position;
+import com.winnergenic.reagroup.robot.Robot;
 
 /**
  * MoveCommand.java
  * Started - Aug 7, 2013
  */
 public class MoveCommand implements Command {
-	
-	private static final Logger log = Logger.getLogger(MoveCommand.class);
 
 	@Override
 	public CommandLog visit(Robot robot) {
 		if(!robot.isAlreadyStarted()) { // ignore if robot has not yet initiated
-			CommandLog ignoredCommand = new CommandLog(true, "Robot has not been PLACED. MOVE command ignored");
+			String message = "Robot has not been PLACED. MOVE command ignored";
+			CommandLog ignoredCommand = new CommandLog(true, message);
 			return ignoredCommand;
 		}
 		
@@ -46,7 +43,6 @@ public class MoveCommand implements Command {
 			commandLog = CommandLog.OKCOMMANDLOG;
 		} else { // else do NOTHING!!!
 			String message = "Ignoring this call to move as I will NOT terminate myself. I'd rather self destruct in 5...4...3... just kidding";
-			log.info(message);
 			commandLog = new CommandLog(true, message);
 		}
 		

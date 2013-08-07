@@ -2,7 +2,7 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot.command;
+package com.winnergenic.reagroup.robot.command;
 
 /**
  * CommandLog.java
@@ -47,6 +47,13 @@ public class CommandLog {
 	public void setStatusReason(String statusReason) {
 		this.statusReason = statusReason;
 	}
-	
-	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CommandLog [isCommandInQuestion=" + isCommandInQuestion
+				+ ", statusReason=" + statusReason + "]";
+	}
 }

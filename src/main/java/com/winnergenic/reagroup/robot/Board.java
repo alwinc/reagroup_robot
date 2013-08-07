@@ -2,7 +2,7 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot;
+package com.winnergenic.reagroup.robot;
 
 /**
  * Board.java
