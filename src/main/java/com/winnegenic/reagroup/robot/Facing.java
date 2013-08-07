@@ -1,6 +1,5 @@
 /**
  * @Copyright 2013
- * Work produced by Winnergenic Pty Ltd
  * All rights reserved
  */
 package com.winnegenic.reagroup.robot;

@@ -1,6 +1,5 @@
 /**
  * @Copyright 2013
- * Work produced by Winnergenic Pty Ltd
  * All rights reserved
  */
 package com.winnegenic.reagroup.robot.command;
@@ -12,14 +11,16 @@ import com.winnegenic.reagroup.robot.Robot;
  * Started - Aug 7, 2013
  */
 public class ReportCommand implements Command {
-
-	/* (non-Javadoc)
-	 * @see com.winnegenic.reagroup.robot.command.Command#visit(com.winnegenic.reagroup.robot.Robot)
-	 */
+	
 	@Override
 	public CommandLog visit(Robot robot) {
-		// TODO Auto-generated method stub
-
+		if(!robot.isAlreadyStarted()) { // ignore if robot has not yet initiated
+			CommandLog ignoredCommand = new CommandLog(true, "Robot has not been PLACED. REPORT command ignored");
+			return ignoredCommand;
+		}
+		
+		System.out.println(robot.getPosition());
+		return CommandLog.OKCOMMANDLOG;
 	}
 
 }

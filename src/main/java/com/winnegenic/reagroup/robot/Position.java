@@ -1,6 +1,5 @@
 /**
  * @Copyright 2013
- * Work produced by Winnergenic Pty Ltd
  * All rights reserved
  */
 package com.winnegenic.reagroup.robot;
@@ -27,7 +26,6 @@ public class Position {
 		this.yCoord = y;
 		this.facingPosition = facingPosition;
 	}
-	
 	
 	/**
 	 * @return the xCoord
@@ -65,4 +63,14 @@ public class Position {
 	public void setFacingPosition(Facing facingPosition) {
 		this.facingPosition = facingPosition;
 	}
+
+	/** 
+	 * Prints the position according to the format X,Y,FACING
+	 */
+	@Override
+	public String toString() {
+		return xCoord + "," + yCoord + "," + facingPosition;
+	}
+	
+	
 }

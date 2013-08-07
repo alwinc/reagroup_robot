@@ -1,6 +1,5 @@
 /**
  * @Copyright 2013
- * Work produced by Winnergenic Pty Ltd
  * All rights reserved
  */
 package com.winnegenic.reagroup.robot.command;
@@ -12,6 +11,9 @@ package com.winnegenic.reagroup.robot.command;
 public class CommandLog {
 	private boolean isCommandInQuestion;
 	private String statusReason; // only requires a reason if command is in question
+	
+	// basic command log for successful/no-problems command
+	public static final CommandLog OKCOMMANDLOG = new CommandLog(false, null);
 	
 	public CommandLog(boolean isQuestionable, String reason) {
 		this.isCommandInQuestion = isQuestionable;

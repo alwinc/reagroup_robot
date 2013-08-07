@@ -1,10 +1,10 @@
 /**
  * @Copyright 2013
- * Work produced by Winnergenic Pty Ltd
  * All rights reserved
  */
 package com.winnegenic.reagroup.robot.command;
 
+import com.winnegenic.reagroup.robot.Facing;
 import com.winnegenic.reagroup.robot.Robot;
 
 /**
@@ -13,13 +13,27 @@ import com.winnegenic.reagroup.robot.Robot;
  */
 public class RightCommand implements Command {
 
-	/* (non-Javadoc)
-	 * @see com.winnegenic.reagroup.robot.command.Command#visit(com.winnegenic.reagroup.robot.Robot)
-	 */
 	@Override
 	public CommandLog visit(Robot robot) {
-		// TODO Auto-generated method stub
-
+		if(!robot.isAlreadyStarted()) { // ignore if robot has not yet initiated
+			CommandLog ignoredCommand = new CommandLog(true, "Robot has not been PLACED. RIGHT command ignored");
+			return ignoredCommand;
+		}
+		
+		Facing facePosition = robot.getPosition().getFacingPosition();
+		
+		Facing newFacePosition = null;
+		if(Facing.NORTH.equals(facePosition)) {
+			newFacePosition = Facing.EAST;
+		} else if (Facing.SOUTH.equals(facePosition)) {
+			newFacePosition = Facing.WEST;
+		} else if (Facing.EAST.equals(facePosition)) {
+			newFacePosition = Facing.SOUTH;
+		} else if (Facing.WEST.equals(facePosition)) {
+			newFacePosition = Facing.NORTH;
+		}
+		// assign the new face position
+		robot.getPosition().setFacingPosition(newFacePosition);
+		return CommandLog.OKCOMMANDLOG;
 	}
-
 }

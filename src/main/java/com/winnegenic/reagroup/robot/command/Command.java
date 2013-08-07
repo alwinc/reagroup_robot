@@ -1,6 +1,5 @@
 /**
  * @Copyright 2013
- * Work produced by Winnergenic Pty Ltd
  * All rights reserved
  */
 package com.winnegenic.reagroup.robot.command;
@@ -16,6 +15,12 @@ import com.winnegenic.reagroup.robot.Robot;
  * design pattern
  */
 public interface Command {
+	
+	public static final String PLACE = "PLACE";
+	public static final String MOVE = "MOVE";
+	public static final String REPORT = "REPORT";
+	public static final String LEFT = "LEFT";
+	public static final String RIGHT = "RIGHT";
 	
 	/**
 	 * 

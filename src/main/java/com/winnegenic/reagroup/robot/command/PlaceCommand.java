@@ -1,6 +1,5 @@
 /**
  * @Copyright 2013
- * Work produced by Winnergenic Pty Ltd
  * All rights reserved
  */
 package com.winnegenic.reagroup.robot.command;
@@ -32,14 +31,29 @@ public class PlaceCommand implements Command {
 		if (robot.isAlreadyStarted()) {
 			retVal = new CommandLog(true, "A PLACE has been requested after robot has already been moving. This is an ACT of God!");
 		}
+		robot.setAlreadyStarted(true); // get this going
 		
 		Board robotBoard = robot.getBoard();
 		if (robotBoard.isOnBoard(placePosition)) {
 			robot.setPosition(placePosition); // sets the position if it is on the board
 		} else {
-			retVal = new CommandLog(true, "Robot got called to move off the table! How are you!");
+			retVal = new CommandLog(true, "Robot got PLACED off the table! How dare you!");
 		}
-		return retVal;
+		return retVal; // nullable return value
+	}
+
+	/**
+	 * @return the placePosition
+	 */
+	public Position getPlacePosition() {
+		return placePosition;
+	}
+
+	/**
+	 * @param placePosition the placePosition to set
+	 */
+	public void setPlacePosition(Position placePosition) {
+		this.placePosition = placePosition;
 	}
 
 }
