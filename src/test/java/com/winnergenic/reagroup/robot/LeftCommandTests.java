@@ -2,7 +2,7 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnegenic.reagroup.robot.command;
+package com.winnergenic.reagroup.robot;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -12,20 +12,18 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.winnegenic.reagroup.robot.Board;
-import com.winnegenic.reagroup.robot.Facing;
-import com.winnegenic.reagroup.robot.Position;
-import com.winnegenic.reagroup.robot.Robot;
+import com.winnergenic.reagroup.robot.command.CommandLog;
+import com.winnergenic.reagroup.robot.command.LeftCommand;
 
 /**
  * LeftCommandTests.java
  * Started - Aug 8, 2013
  */
-public class RightCommandTests {
+public class LeftCommandTests {
 	
 	private Robot robot;
 	private Position rPosition;
-	RightCommand rightCommand;
+	LeftCommand leftCommand;
 	
 	/**
 	 * Initialise a robot without any position at this point
@@ -35,12 +33,12 @@ public class RightCommandTests {
 		robot = new Robot();
 		robot.setBoard(new Board(5,5));
 		robot.setAlreadyStarted(true);
-		rightCommand = new RightCommand();
+		leftCommand = new LeftCommand();
 	}
 
 	/**
-	 * Starting from NORTH position ensure that the robot rotates to EAST
-	 * on RIGHT command
+	 * Starting from NORTH position ensure that the robot rotates to WEST
+	 * on LEFT command
 	 */
 	@Test
 	public void fromNorthTest() {
@@ -48,9 +46,9 @@ public class RightCommandTests {
 		rPosition = new Position(2,2,Facing.NORTH);
 		robot.setPosition(rPosition);
 		
-		CommandLog result = rightCommand.visit(robot);
+		CommandLog result = leftCommand.visit(robot);
 		
-		assertEquals(Facing.EAST, robot.getPosition().getFacingPosition());
+		assertEquals(Facing.WEST, robot.getPosition().getFacingPosition());
 		assertEquals(CommandLog.OKCOMMANDLOG, result);
 	}
 	
@@ -63,9 +61,9 @@ public class RightCommandTests {
 		rPosition = new Position(2,2,Facing.SOUTH);
 		robot.setPosition(rPosition);
 		
-		CommandLog result = rightCommand.visit(robot);
+		CommandLog result = leftCommand.visit(robot);
 		
-		assertEquals(Facing.WEST, robot.getPosition().getFacingPosition());
+		assertEquals(Facing.EAST, robot.getPosition().getFacingPosition());
 		assertEquals(CommandLog.OKCOMMANDLOG, result);
 	}
 	
@@ -78,9 +76,9 @@ public class RightCommandTests {
 		rPosition = new Position(2,2,Facing.EAST);
 		robot.setPosition(rPosition);
 		
-		CommandLog result = rightCommand.visit(robot);
+		CommandLog result = leftCommand.visit(robot);
 		
-		assertEquals(Facing.SOUTH, robot.getPosition().getFacingPosition());
+		assertEquals(Facing.NORTH, robot.getPosition().getFacingPosition());
 		assertEquals(CommandLog.OKCOMMANDLOG, result);
 	}
 	
@@ -93,9 +91,9 @@ public class RightCommandTests {
 		rPosition = new Position(2,2,Facing.WEST);
 		robot.setPosition(rPosition);
 		
-		CommandLog result = rightCommand.visit(robot);
+		CommandLog result = leftCommand.visit(robot);
 		
-		assertEquals(Facing.NORTH, robot.getPosition().getFacingPosition());
+		assertEquals(Facing.SOUTH, robot.getPosition().getFacingPosition());
 		assertEquals(CommandLog.OKCOMMANDLOG, result);
 	}
 	
@@ -107,7 +105,7 @@ public class RightCommandTests {
 	public void ignoreCommandIfRobotIsNotInitiated() {
 		robot.setAlreadyStarted(false);
 		
-		CommandLog result = rightCommand.visit(robot);
+		CommandLog result = leftCommand.visit(robot);
 		
 		assertNull(robot.getPosition()); // missing position still
 		assertTrue(result.isCommandInQuestion());
