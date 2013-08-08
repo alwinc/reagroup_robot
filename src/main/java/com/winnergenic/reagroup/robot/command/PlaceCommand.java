@@ -26,15 +26,15 @@ public class PlaceCommand implements Command {
 	
 	@Override
 	public CommandLog visit(Robot robot) {
-		CommandLog retVal = null;
+		CommandLog retVal = CommandLog.OKCOMMANDLOG;
 		// Check if the robot has already started and a Place command is coming in late
 		if (robot.isAlreadyStarted()) {
 			retVal = new CommandLog(true, "A PLACE has been requested after robot has already been moving. This is an ACT of God!");
 		}
-		robot.setAlreadyStarted(true); // get this going
 		
 		Board robotBoard = robot.getBoard();
 		if (robotBoard.isOnBoard(placePosition)) {
+			robot.setAlreadyStarted(true); // get this going
 			robot.setPosition(placePosition); // sets the position if it is on the board
 		} else {
 			retVal = new CommandLog(true, "Robot got PLACED off the table! How dare you!");

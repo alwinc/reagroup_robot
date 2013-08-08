@@ -2,7 +2,7 @@
  * @Copyright 2013
  * All rights reserved
  */
-package com.winnergenic.reagroup.robot;
+package com.winnergenic.reagroup.robot.command;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -12,6 +12,10 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.winnergenic.reagroup.robot.Board;
+import com.winnergenic.reagroup.robot.Facing;
+import com.winnergenic.reagroup.robot.Position;
+import com.winnergenic.reagroup.robot.Robot;
 import com.winnergenic.reagroup.robot.command.CommandLog;
 import com.winnergenic.reagroup.robot.command.RightCommand;
 

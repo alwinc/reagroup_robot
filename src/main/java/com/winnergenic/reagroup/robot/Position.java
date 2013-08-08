@@ -71,6 +71,40 @@ public class Position {
 	public String toString() {
 		return xCoord + "," + yCoord + "," + facingPosition;
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((facingPosition == null) ? 0 : facingPosition.hashCode());
+		result = prime * result + xCoord;
+		result = prime * result + yCoord;
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Position))
+			return false;
+		Position other = (Position) obj;
+		if (facingPosition != other.facingPosition)
+			return false;
+		if (xCoord != other.xCoord)
+			return false;
+		if (yCoord != other.yCoord)
+			return false;
+		return true;
+	}
 	
 }

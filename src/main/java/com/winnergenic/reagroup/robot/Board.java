@@ -37,12 +37,40 @@ public class Board {
 	 */
 	public boolean isOnBoard(Position p) {
 		// simple check that coordinates are within bounds, otherwise all others are invalid positions
-		if ((p.getxCoord() <= maxX)  && // within max X
+		if ((p.getxCoord() < maxX)  && // within max X
 				(p.getxCoord() >= 0) && // assuming that smallest position is 0,0
-				(p.getyCoord() <= maxY) &&
+				(p.getyCoord() < maxY) &&
 				(p.getyCoord() >= 0)) {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * @return the maxX
+	 */
+	public int getMaxX() {
+		return maxX;
+	}
+
+	/**
+	 * @param maxX the maxX to set
+	 */
+	public void setMaxX(int maxX) {
+		this.maxX = maxX;
+	}
+
+	/**
+	 * @return the maxY
+	 */
+	public int getMaxY() {
+		return maxY;
+	}
+
+	/**
+	 * @param maxY the maxY to set
+	 */
+	public void setMaxY(int maxY) {
+		this.maxY = maxY;
 	}
 }
