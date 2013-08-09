@@ -5,12 +5,47 @@ Robot Assessment Task for REA group in Java
 
 Overview
 -----------
+This assignment was produced as part of a 2nd stage Programming Assessment Task.
+This project was built using Apache Maven and you will require Maven in order to build
+an executable jar.
 
-Assumptions
------------
+The robot adopted the Visitor Design pattern for the commands and also has some
+unique easter eggs (just turn on ALL logging if you want to see it).
 
 Justifications
 --------------
+I decided to use the Visitor Design pattern for this project as it seemed obvious
+the commands were to be applied to the robot and the robot became a machine to 
+contain its state. It was the PERFECT scenario to use Visitor Design pattern in the event
+should additional commands be introduced later on down the track.
+
+So in this instance the Robot became Visitable and the Commands were the Visitors.
+
+I also chose NOT to go down the Finite State Machine route as I calculated there would be
+5x5x4x5 combinations in the state machine. This is because
+
+`number of X coordinates` X `number of Y coordinates` X `number of faces` X `number of commands`
+
+resulting in 500 search space for a 5x5 board.
+
+Since ultimately the ONLY commands needed to be examined in detail should the robot move off the
+table are
+1.PLACE
+2.MOVE
+
+This reduces the search space to 5x5x4x2 = 200
+
+And since PLACE is easy to test if the robot is on the board, you really have only 100 search space to
+worry about for the MOVE command.
+
+Since there weren't any obstacles for the robot to manoeuvre around, realistically, this problem was 
+NOT sufficiently complicated for the robot to create a Finite State Machine (which would result in large
+memory footprint). I found doing it programmatically had a maximum of 4 comparisons using basic primitive 
+integers which I don't believe would be as devastating for a robot to lose micro seconds on.
+
+However if we said that this robot was some kind of emergency robot and every picosecond counted AND
+the list of commands are extensive, then it might justify a FSM.
+
 
 Things to improve on
 ---------------------
@@ -52,9 +87,9 @@ Input Flags
 I have implemented several unique flags for the Robot allowing it to be more robust for expansion
 in the future. If no flags are inserted, then the robot will merely accept user input.
 
-* -f <filename>	uses a file (relative to execution point) as the input
-* -s	triggers sensitive robot that will blow up on ANY errorneous input
-* -b <int M>	changes the board size to be sized MxM
+* `-f <filename>` - uses a file (relative to execution point) as the input
+* `-s triggers` - sensitive robot that will blow up on ANY errorneous input
+* `-b <int M>` - changes the board size to be sized MxM
 
 Example usage would be
 
