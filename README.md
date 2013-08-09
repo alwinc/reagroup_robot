@@ -30,6 +30,7 @@ resulting in 500 search space for a 5x5 board.
 
 Since ultimately the ONLY commands needed to be examined in detail should the robot move off the
 table are
+
 1.PLACE
 2.MOVE
 
