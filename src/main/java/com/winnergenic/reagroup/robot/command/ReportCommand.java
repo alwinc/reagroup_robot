@@ -18,7 +18,6 @@ public class ReportCommand implements Command {
 			CommandLog ignoredCommand = new CommandLog(true, "Robot has not been PLACED. REPORT command ignored");
 			return ignoredCommand;
 		}
-		
 		System.out.println(robot.getPosition());
 		return CommandLog.OKCOMMANDLOG;
 	}

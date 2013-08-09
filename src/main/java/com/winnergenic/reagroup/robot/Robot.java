@@ -132,6 +132,7 @@ public class Robot {
 	public void executeCommands() {
 		for(Command c: commandSequence) {
 			this.accept(c);
+			log.trace(this.getPosition());
 		}
 	}
 	
